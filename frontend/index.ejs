@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <style type="text/css">
+      body {
+        opacity: 0;
+        transition: opacity .4s .3s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+     <div id="app">
+        <div class="heading">Size calculator</div>
+       <select name="" id="brand" disabled>
+       </select>
+       <select name="" id="category" disabled>
+       </select>
+       <div class="input-container disabled" id="size-container">
+        <label for="size">My size is </label>
+        <input type="text" id="size" disabled>
+        <span>inches.</span>  
+       </div>
+       
+       <button id="calculate" disabled>Calculate</button>
+
+       <div id="prediction-container" class="hidden">
+            <div class="heading">Your size is</div>
+            <div id="prediction">M</div>
+            <button id="ok">OK</button>
+       </div>
+     </div>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "preset": "default",
+  "indent": {
+    "value": "  "
+  },
+  "extensions": [
+    "js",
+    "jsx",
+    "sublime-settings"
+  ],
+  "plugins": [
+    "esformatter-jsx"
+  ],
+  "lineBreak": {
+    "after": {
+      "FunctionDeclarationClosingBrace": ">=2",
+      "ModuleSpecifierComma": "-1"
+    }
+  },
+  "whiteSpace": {
+    "before": {
+      "CatchParameterList": 0,
+      "ForOfStatementExpressionClosing": 0
+    },
+    "after": {
+      "CatchParameterList": 0,
+      "ForOfStatementExpressionOpening": 0
+    }
+  }
+}

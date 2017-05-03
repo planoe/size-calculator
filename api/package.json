@@ -1,0 +1,20 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Secret Sauce Size Calculator API",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sspinc/size-calculator.git"
+  },
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.15.2",
+    "morgan": "^1.8.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Secret Sauce Partners, Inc.",
+  "license": "MIT"
+}
