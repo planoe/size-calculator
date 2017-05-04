@@ -25,15 +25,15 @@ exist for women and men.
 
 Size charts usually have the following properties:
 
-* Brand or manufacturer
+* Brand or designer
 * Product category such as dresses, pants, sneakers
 * Size labels and physical measurements for those labels
-* Measurement types: a piece of clothing has multiple dimensions. For example
-  a dress can have bust, waist and arm length, jeans can have waist and inseam
+* Measurement types: an apparel item has multiple dimensions. For example
+  a dress can have bust, hip, and waist, a jeans can have waist and inseam
   measurements.
 * Size system: different countries use different size labels for the same
   physical measurements
-* Type: alpha (S, M, L) or numeric (2, 4, 6)
+* Sizing: alpha (S, M, L) or numeric (2, 4, 6)
 
 ## Size chart examples
 
@@ -57,11 +57,10 @@ Size charts usually have the following properties:
 
 ## Running the API
 
-An example UI implementation can be found in the `frontend/` directory. A very
-basic API implementation with hard-coded responses can be found in the `api/`
-directory.
+An example UI implementation can be found in the `frontend/` directory. A mock API
+implementation with hard-coded responses can be found in the `api/` directory.
 
-The example UI and API uses node.js.
+The example API uses Node.js.
 
 Running the API:
 
@@ -78,9 +77,11 @@ Visit http://localhost:3000.
 
 ## API specification
 
-A simple REST API that exposes the necessary resources for the UI to function.
+A simple REST API that exposes the necessary resources.
 
 ### List brands
+
+Lists the brands that the calculator can calculate the size for.
 
 ```
 GET /brands
@@ -102,6 +103,7 @@ Response: 200 (application/json)
 
 ### List categories
 
+Lists the categories that the calculator can calculate size for a brand.
 ```
 GET /categories?brand=calvin-klein
 Response: 200 (application/json)
@@ -124,8 +126,8 @@ Response: 200 (application/json)
 
 ### Get a prediction
 
-Based on an input brand, category and measurement it provides one or more size
-labels that would fit.
+Based on a brand, category and measurement it provides one or more size
+labels that best fit.
 
 ```
 GET /prediction?brand=calvin-klein&category=dresses&measurement=32
@@ -138,8 +140,8 @@ Response: 200 (application/json)
 }
 ```
 
-When the given brand-category-measurement tuple does not yield any meaningful
-result:
+If there is no meaningfule size label for the input, the API returns an error
+with an informative message.
 
 ```
 Response: 404 (application/json)
