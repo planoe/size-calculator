@@ -140,7 +140,7 @@ Response: 200 (application/json)
 }
 ```
 
-If there is no meaningfule size label for the input, the API returns an error
+If there is no meaningful size label for the input, the API returns an error
 with an informative message.
 
 ```
