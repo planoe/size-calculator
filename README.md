@@ -28,7 +28,7 @@ Size charts usually have the following properties:
 * Brand or designer
 * Product category such as dresses, pants, sneakers
 * Size labels and physical measurements for those labels
-* Measurement types: an apparel item has multiple dimensions. For example
+* Measurement types: an apparel item can have multiple dimensions. For example
   a dress can have bust, hip, and waist, a jeans can have waist and inseam
   measurements.
 * Size system: different countries use different size labels for the same
@@ -55,12 +55,12 @@ Size charts usually have the following properties:
 * [CalcTool](http://www.calctool.org/CALC/other/home/dress_size)
 * [Shopfans Caclulator](https://shopfans.com/clothes/size.html)
 
-## Running the API
+## Running the Mock API
 
-An example UI implementation can be found in the `frontend/` directory. A mock API
-implementation with hard-coded responses can be found in the `api/` directory.
+A mock API implementation with hard-coded responses can be found in the `api/` directory.
+An example UI implementation can be found in the `frontend/` directory.
 
-The example API uses Node.js.
+The mock API uses Node.js and also serves the example UI implementation.
 
 Running the API:
 
@@ -75,9 +75,10 @@ Running the API:
 
 Visit http://localhost:3000.
 
-## API specification
+## Size Calculator API
 
-A simple REST API that exposes the necessary resources.
+The Size Calculator API is a simple REST API that exposes brands, categories and
+the prediction as resources.
 
 ### List brands
 
@@ -103,7 +104,7 @@ Response: 200 (application/json)
 
 ### List categories
 
-Lists the categories that the calculator can calculate size for a brand.
+Lists the categories that the calculator supports for a particular brand.
 ```
 GET /categories?brand=calvin-klein
 Response: 200 (application/json)
@@ -126,8 +127,7 @@ Response: 200 (application/json)
 
 ### Get a prediction
 
-Based on a brand, category and measurement it provides one or more size
-labels that best fit.
+Returns one or more size labels that most likely fit, based on a brand, category and measurement.
 
 ```
 GET /prediction?brand=calvin-klein&category=dresses&measurement=32
@@ -140,7 +140,7 @@ Response: 200 (application/json)
 }
 ```
 
-If there is no meaningful size label for the input, the API returns an error
+If there is no meaningful size label, the API returns an error
 with an informative message.
 
 ```
@@ -152,6 +152,14 @@ Response: 404 (application/json)
     }
 }
 ```
+
+## Contributing
+
+Fork this repository and implement a Size Calculator API that works with the UI.
+You can choose any database, framework, language, or technology.
+Document your choices and provide instructions on how to get the project up and running.
+
+Pull requests welcome!
 
 ## License
 
