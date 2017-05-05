@@ -52,7 +52,7 @@ Size charts usually have the following properties:
 ## Size calculator examples
 
 * [Lidl Size Calculator](https://www.lidl.co.uk/en/Sizecalculator.htm?country=uk&lang=en)
-* [Cacltool](http://www.calctool.org/CALC/other/home/dress_size)
+* [CalcTool](http://www.calctool.org/CALC/other/home/dress_size)
 * [Shopfans Caclulator](https://shopfans.com/clothes/size.html)
 
 ## Running the API
