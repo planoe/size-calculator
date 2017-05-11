@@ -5,7 +5,7 @@ var app = express();
 var responses = {
     brands: [
         { key: "calvin-klein", name: "Calvin Klein" },
-        { key: "diane-von-furstenberg", name: "Diane von Fürstenberg" },
+        { key: "diane-von-furstenberg", name: "Diane von Furstenberg" },
         { key: "michael-kors", name: "Michael Kors" },
     ],
     categories: [
