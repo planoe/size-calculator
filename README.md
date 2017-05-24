@@ -75,6 +75,10 @@ Running the API:
 
 Visit http://localhost:3000.
 
+### Example UI
+
+![Example UI Screenshot](frontend/screenshot.png)
+
 ## Size Calculator API
 
 The Size Calculator API is a simple REST API that exposes brands, categories and
