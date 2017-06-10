@@ -1,2 +1,5 @@
 node_modules/
 frontend/dist/
+.idea/
+*.iml
+java-api/target/
