@@ -25,17 +25,21 @@ function createOption(value, text) {
     .val(value);
 }
 
+function getFromApi(path) {
+  return $.get('/api' + path);
+}
+
 function getBrands() {
-  return $.get('/brands');
+  return getFromApi('/brands');
 }
 
 function getCategories(brand) {
-  return $.get('/categories?brand=' + brand);
+  return getFromApi('/categories?brand=' + brand);
 }
 
 function getPrediction(brand, category, size) {
   var url = '/prediction?brand=' + brand + '&category=' + category + '&size=' + size;
-  return $.get(url);
+  return getFromApi(url);
 }
 
 function appendBrands(brands) {
