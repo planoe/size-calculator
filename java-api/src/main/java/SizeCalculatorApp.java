@@ -37,7 +37,10 @@ public class SizeCalculatorApp extends Application<Configuration> {
     }
 
     public void run(Configuration configuration, Environment environment) throws Exception {
+        environment.getObjectMapper().setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
+        
         environment.jersey().register(BrandResource.class);
+        environment.jersey().register(CategoryResource.class);
     }
 
 

@@ -10,5 +10,6 @@ import db.H2CategoryDAO;
 public class SizeCalculatorModule extends AbstractModule{
     protected void configure() {
         bind(BrandDAO.class).to(H2BrandDAO.class);
+        bind(CategoryDAO.class).to(H2CategoryDAO.class);
     }
 }
