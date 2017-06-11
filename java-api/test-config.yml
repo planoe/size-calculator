@@ -1,0 +1,5 @@
+server:
+  applicationConnectors:
+    - type: http
+      port: 3000
+  rootPath: /api/
