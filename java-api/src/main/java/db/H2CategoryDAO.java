@@ -13,7 +13,8 @@ public class H2CategoryDAO implements CategoryDAO {
     @Override
     public List<Category> retrieveBrandCategories(Brand brand) {
         return Arrays.asList(
-                new Category("dresses", "Dresses", "bust"),
-                new Category("jeans", "Jeans", "waist"));
+                Category.create("dresses", "Dresses", "bust"),
+                Category.create("jeans", "Jeans", "waist")
+        );
     }
 }

@@ -15,7 +15,8 @@ class BrandSpec extends Specification{
         where:
         brandResource = Guice.createInjector(new SizeCalculatorModule()).getInstance(BrandResource.class)
         expectedBrands = Arrays.asList(
-                new Brand("calvin-klein", "Calvin Klein"),
-                new Brand("florence-eiseman", "Florence Eiseman"))
+                Brand.create("calvin-klein", "Calvin Klein"),
+                Brand.create("florence-eiseman", "Florence Eiseman")
+        )
     }
 }

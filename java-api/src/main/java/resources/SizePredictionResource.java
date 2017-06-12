@@ -22,6 +22,6 @@ public class SizePredictionResource {
     public SizePrediction predictSizeFrom(@QueryParam("brand") String brand, @QueryParam("category") String category, @QueryParam("size") IntParam size) {
         System.out.println(brand+ "   " + category + "ttttttttttttt "+ size);
         if (size.get()==32) throw new ObjectNotFoundException("aa");
-        return new SizePrediction(Arrays.asList("S", "4"));
+        return SizePrediction.create(Arrays.asList("S", "4"));
     }
 }

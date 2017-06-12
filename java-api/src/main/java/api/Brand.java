@@ -1,42 +1,29 @@
 package api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import com.google.auto.value.AutoValue;
 
-/**
- * Created by philippe on 10/06/17.
- */
-public class Brand {
+@AutoValue
+public abstract class Brand {
+
     @JsonProperty
-    private final String key;
+    public abstract String getKey();
     @JsonProperty
-    private final String name;
+    public abstract String getName();
 
 
-    public Brand(String key, String name) {
-        this.key = key;
-        this.name = name;
+    public static Brand create(String key, String name) {
+        return Brand.builder().setKey(key).setName(name).build();
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Brand brand = (Brand) o;
-        return Objects.equal(key, brand.key);
+    public static Builder builder() {
+        return new AutoValue_Brand.Builder();
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(key);
-    }
-
-    @Override
-    public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("key", key)
-                .add("name", name)
-                .toString();
+    @AutoValue.Builder
+    abstract static class Builder {
+        abstract Builder setKey(String value);
+        abstract Builder setName(String value);
+        abstract Brand build();
     }
 }

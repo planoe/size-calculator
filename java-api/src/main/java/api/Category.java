@@ -1,45 +1,30 @@
 package api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import com.google.auto.value.AutoValue;
 
-/**
- * Created by philippe on 11/06/17.
- */
-public class Category {
+@AutoValue
+public abstract class Category {
     @JsonProperty
-    private final String key;
+    public abstract String getKey();
     @JsonProperty
-    private final String name;
+    public abstract String getName();
     @JsonProperty
-    private final String measurementType;
+    public abstract String getMeasurementType();
 
-    public Category(String key, String name, String measurementType) {
-        this.key = key;
-        this.name = name;
-        this.measurementType = measurementType;
+    public static Category create(String key, String name, String measurementType) {
+        return Category.builder().setKey(key).setName(name).setMeasurementType(measurementType).build();
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Category category = (Category) o;
-        return Objects.equal(key, category.key);
+    public static Category.Builder builder() {
+        return new AutoValue_Category.Builder();
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(key);
-    }
-
-    @Override
-    public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("key", key)
-                .add("name", name)
-                .add("measurementType", measurementType)
-                .toString();
+    @AutoValue.Builder
+    public abstract static class Builder {
+        abstract Category.Builder setKey(String value);
+        abstract Category.Builder setName(String value);
+        abstract Category.Builder setMeasurementType(String value);
+        abstract Category build();
     }
 }

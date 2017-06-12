@@ -14,7 +14,8 @@ class CategorySpec extends Specification{
         where:
         categoryResource = Guice.createInjector(new SizeCalculatorModule()).getInstance(CategoryResource.class)
         expectedCategories = Arrays.asList(
-                new Category("dresses", "Dresses", "bust"),
-                new Category("jeans", "Jeans", "waist"))
+                Category.create("dresses", "Dresses", "bust"),
+                Category.create("jeans", "Jeans", "waist")
+        )
     }
 }
