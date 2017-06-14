@@ -1,11 +1,5 @@
-import api.Category;
-import api.SizePrediction;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.google.inject.Guice;
-import com.google.inject.Injector;
 import com.hubspot.dropwizard.guice.GuiceBundle;
-import db.BrandDAO;
 import io.dropwizard.Application;
 import io.dropwizard.Configuration;
 import io.dropwizard.assets.AssetsBundle;

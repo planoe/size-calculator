@@ -24,7 +24,7 @@ public class BrandResource {
     }
 
     @GET
-    public BrandRepository getBrandRepository() {
+    public BrandRepository getBrands() {
         return new BrandRepository(brandDAO.retrieveAll());
     }
 }
