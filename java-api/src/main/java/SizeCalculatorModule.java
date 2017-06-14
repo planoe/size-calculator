@@ -15,7 +15,8 @@ public class SizeCalculatorModule extends AbstractModule{
     @Override
     protected void configure() {
         bind(BrandDAO.class).to(JsonBrandDAO.class);
-        bind(CategoryDAO.class).to(FakeCategoryDAO.class);
+        bind(CategoryDAO.class).to(JsonCategoryDAO.class);
+        bind(SizeChartDAO.class).to(JsonSizeChartDAO.class);
 
         ObjectMapper om = new ObjectMapper();
         om.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
