@@ -9,5 +9,5 @@ import java.util.List;
  * Created by philippe on 11/06/17.
  */
 public interface CategoryDAO {
-    List<Category> retrieveBrandCategories(Brand brand);
+    List<Category> retrieveBrandCategories(String brandKey);
 }

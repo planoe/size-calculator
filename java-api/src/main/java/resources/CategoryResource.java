@@ -3,6 +3,7 @@ package resources;
 import api.CategoryRepository;
 import com.google.inject.Inject;
 import db.CategoryDAO;
+import io.dropwizard.jersey.params.NonEmptyStringParam;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -25,7 +26,7 @@ public class CategoryResource {
     }
 
     @GET
-    public CategoryRepository getCategoryRepository(@QueryParam("brand") Optional<String> brand) {
-        return new CategoryRepository(categoryDAO.retrieveBrandCategories(null));
+    public CategoryRepository getCategoryRepository(@QueryParam("brand") NonEmptyStringParam brandKey) {
+        return new CategoryRepository(categoryDAO.retrieveBrandCategories(brandKey.get().get()));
     }
 }
