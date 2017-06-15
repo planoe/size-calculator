@@ -1,7 +1,7 @@
 package planoe.sspinc
 
+import planoe.sspinc.api.Category
 import planoe.sspinc.db.dao.jsonimpl.JsonCategoryDAO
-import io.dropwizard.jersey.params.NonEmptyStringParam
 import planoe.sspinc.resources.CategoryResource
 import spock.lang.Specification
 
@@ -27,8 +27,8 @@ class CategorySpec extends Specification{
         actualCategories.getCategoriesList() == categories
 
         where:
-        lookedUpBrand = new NonEmptyStringParam("karl-lagarfeld")
-        categories = [planoe.sspinc.api.Category.create("jeans", "Jeans", "waist")]
+        lookedUpBrand = "karl-lagarfeld"
+        categories = [Category.create("jeans", "Jeans", "waist")]
     }
 
     def "JsonCategoryDAO get correctly data from json file" () {
@@ -43,8 +43,8 @@ class CategorySpec extends Specification{
         categories.containsAll(expectedCategories) && expectedCategories.containsAll(categories)
 
         where:
-        testFilePath="src/test/planoe.sspinc.resources/brands.json"
+        testFilePath="src/test/resources/brands.json"
         lookedUpBrand = "karl-lagarfeld"
-        expectedCategories=[planoe.sspinc.api.Category.create("jeans", "Jeans", "waist")]
+        expectedCategories=[Category.create("jeans", "Jeans", "waist")]
     }
 }

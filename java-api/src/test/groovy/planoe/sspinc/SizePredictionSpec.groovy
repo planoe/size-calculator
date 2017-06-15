@@ -47,7 +47,7 @@ class SizePredictionSpec extends Specification{
         actualSizes.containsAll(expectedSizes) && expectedSizes.containsAll(actualSizes)
 
         where:
-        testFilePath = "src/test/planoe.sspinc.resources/brands.json"
+        testFilePath = "src/test/resources/brands.json"
         lookedUpBrand = "karl-lagarfeld"
         lookedUpCategory = "jeans"
         lookedUpMeasurement = 2

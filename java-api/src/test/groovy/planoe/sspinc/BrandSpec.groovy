@@ -42,7 +42,7 @@ class BrandSpec extends Specification{
         brands.containsAll(expectedBrands) && expectedBrands.containsAll(brands)
 
         where:
-        testFilePath="src/test/planoe.sspinc.resources/brands.json"
+        testFilePath="src/test/resources/brands.json"
         expectedBrands=[Brand.create("calvin-klein", "Calvin Klein"),
                         Brand.create("karl-lagarfeld", "Karl Lagarfeld")]
     }
