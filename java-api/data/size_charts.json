@@ -25,6 +25,21 @@
     "name": "Christian Dior",
     "categories": [
       {
+        "key": "dresses",
+        "name": "Dresses",
+        "measurement_type": "bust",
+        "size_charts" : [
+          {"measurement": 34, "size": "2", "alpha_size": "XS"},
+          {"measurement": 35, "size": "4", "alpha_size": "S"},
+          {"measurement": 36, "size": "6", "alpha_size": "S"},
+          {"measurement": 37, "size": "6", "alpha_size": "M"},
+          {"measurement": 38, "size": "8", "alpha_size": "M"},
+          {"measurement": 40, "size": "10", "alpha_size": "L"},
+          {"measurement": 42, "size": "14", "alpha_size": "L"},
+          {"measurement": 44, "size": "16", "alpha_size": "XL"}
+        ]
+      },
+      {
         "key": "jeans",
         "name": "Jeans",
         "measurement_type": "waist",
