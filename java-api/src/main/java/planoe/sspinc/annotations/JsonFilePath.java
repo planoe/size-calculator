@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
  * Created by philippe on 15/06/17.
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.FIELD, ElementType.PARAMETER})
+@Target({ElementType.FIELD, ElementType.PARAMETER, ElementType.METHOD})
 @BindingAnnotation
 public @interface JsonFilePath {
 }
