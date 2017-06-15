@@ -6,6 +6,7 @@ import db.dao.CategoryDAO;
 import exception.DAOException;
 import exception.ObjectNotFoundException;
 import io.dropwizard.jersey.params.NonEmptyStringParam;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -27,9 +28,9 @@ public class CategoryResource {
     }
 
     @GET
-    public CategoryRepository getCategoryRepository(@QueryParam("brand") NonEmptyStringParam brandKey) {
+    public CategoryRepository getCategoryRepository(@QueryParam("brand") @NotEmpty String brandKey) {
         try {
-            return new CategoryRepository(categoryDAO.retrieveBrandCategories(brandKey.get().get()));
+            return new CategoryRepository(categoryDAO.retrieveBrandCategories(brandKey));
         } catch (DAOException e) {
             e.printStackTrace();
             throw new ObjectNotFoundException("Data source currently unavailable");

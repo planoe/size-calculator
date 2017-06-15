@@ -7,7 +7,9 @@ import exception.DAOException;
 import exception.ObjectNotFoundException;
 import io.dropwizard.jersey.params.IntParam;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.valuehandling.UnwrapValidatedValue;
 
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -30,7 +32,7 @@ public class SizePredictionResource {
     }
 
     @GET
-    public SizePrediction predictSizeFrom(@QueryParam("brand") @NotEmpty String brandKey, @QueryParam("category") @NotEmpty String categoryKey, @QueryParam("size") IntParam measurement) {
+    public SizePrediction predictSizeFrom(@QueryParam("brand") @NotEmpty String brandKey, @QueryParam("category") @NotEmpty String categoryKey, @QueryParam("size") @NotNull @UnwrapValidatedValue(false) IntParam measurement) {
         List<String> result;
         try {
             result = sizeChartDAO.retrieveSizes(brandKey, categoryKey, measurement.get());
