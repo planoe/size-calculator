@@ -3,3 +3,4 @@ frontend/dist/
 .idea/
 *.iml
 java-api/target/
+java-api/src/main/resources/assets
