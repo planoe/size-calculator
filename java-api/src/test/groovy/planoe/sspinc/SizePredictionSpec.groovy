@@ -11,9 +11,6 @@ import static org.mockito.ArgumentMatchers.anyString
 import static org.mockito.Mockito.mock
 import static org.mockito.Mockito.when
 
-/**
- * Created by philippe on 11/06/17.
- */
 class SizePredictionSpec extends Specification{
 
     def "SizePredictionResource provides list of all sizes for a given brand, category and measurement"() {

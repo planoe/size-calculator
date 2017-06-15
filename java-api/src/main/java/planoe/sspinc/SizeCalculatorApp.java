@@ -8,7 +8,7 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
 /**
- * Created by philippe on 10/06/17.
+ * The Size Calculator API is a simple REST API that exposes brands, categories and the prediction as resources.
  */
 public class SizeCalculatorApp extends Application<SizeCalculatorConfiguration> {
 
@@ -18,6 +18,7 @@ public class SizeCalculatorApp extends Application<SizeCalculatorConfiguration> 
 
     @Override
     public void initialize(Bootstrap<SizeCalculatorConfiguration> bootstrap) {
+        // Wiring up everything
         GuiceBundle<SizeCalculatorConfiguration> guiceBundle = GuiceBundle.<SizeCalculatorConfiguration>newBuilder()
                 .addModule(new SizeCalculatorModule())
                 .enableAutoConfig(getClass().getPackage().getName())
@@ -30,6 +31,7 @@ public class SizeCalculatorApp extends Application<SizeCalculatorConfiguration> 
     }
 
     public void run(SizeCalculatorConfiguration configuration, Environment environment) throws Exception {
+        // Requirements expect names to be in snake case in the JSON response
         environment.getObjectMapper().setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
     }
 

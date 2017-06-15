@@ -5,9 +5,6 @@ import com.google.auto.value.AutoValue;
 
 import java.util.List;
 
-/**
- * Created by philippe on 11/06/17.
- */
 @AutoValue
 public abstract class Brands {
 

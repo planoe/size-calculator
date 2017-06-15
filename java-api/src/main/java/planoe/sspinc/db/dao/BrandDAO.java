@@ -6,7 +6,7 @@ import planoe.sspinc.exception.DAOException;
 import java.util.List;
 
 /**
- * Created by philippe on 11/06/17.
+ * DAO operations related to brands
  */
 public interface BrandDAO {
     List<Brand> retrieveAll() throws DAOException;

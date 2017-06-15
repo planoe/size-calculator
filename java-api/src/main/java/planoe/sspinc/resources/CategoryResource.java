@@ -14,7 +14,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 /**
- * Created by philippe on 11/06/17.
+ * Exposes categories as resources
  */
 @Path("/categories")
 @Produces(MediaType.APPLICATION_JSON)

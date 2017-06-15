@@ -12,7 +12,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 /**
- * Created by philippe on 10/06/17.
+ * Exposes brands as resources
  */
 @Path("/brands")
 @Produces(MediaType.APPLICATION_JSON)

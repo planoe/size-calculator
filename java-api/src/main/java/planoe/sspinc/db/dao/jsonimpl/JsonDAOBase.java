@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Created by philippe on 15/06/17.
+ * Gather common operation for all DAOs related to JSON files
  */
 class JsonDAOBase {
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();

@@ -8,9 +8,6 @@ import planoe.sspinc.exception.DAOException;
 import javax.inject.Inject;
 import java.util.List;
 
-/**
- * Created by philippe on 13/06/17.
- */
 public class JsonSizeChartDAO extends JsonDAOBase implements SizeChartDAO {
 
     @Inject

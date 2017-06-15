@@ -4,9 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.google.auto.value.AutoValue;
 
-/**
- * Created by philippe on 14/06/17.
- */
 @AutoValue
 @JsonDeserialize(builder = AutoValue_SizeChart.Builder.class)
 public abstract class SizeChart {

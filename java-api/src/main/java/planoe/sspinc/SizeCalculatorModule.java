@@ -10,9 +10,6 @@ import planoe.sspinc.db.dao.jsonimpl.JsonBrandDAO;
 import planoe.sspinc.db.dao.jsonimpl.JsonCategoryDAO;
 import planoe.sspinc.db.dao.jsonimpl.JsonSizeChartDAO;
 
-/**
- * Created by philippe on 11/06/17.
- */
 class SizeCalculatorModule extends AbstractModule{
 
     @Override

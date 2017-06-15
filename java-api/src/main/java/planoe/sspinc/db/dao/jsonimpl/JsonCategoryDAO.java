@@ -9,9 +9,6 @@ import javax.inject.Inject;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Created by philippe on 13/06/17.
- */
 public class JsonCategoryDAO extends JsonDAOBase implements CategoryDAO {
 
     @Inject

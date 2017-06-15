@@ -9,9 +9,6 @@ import static org.mockito.ArgumentMatchers.anyString
 import static org.mockito.Mockito.mock
 import static org.mockito.Mockito.when
 
-/**
- * Created by philippe on 11/06/17.
- */
 class CategorySpec extends Specification{
 
     def "CategoryResource provides list of all categories for a given brand"() {

@@ -8,9 +8,6 @@ import spock.lang.Specification
 import static org.mockito.Mockito.mock
 import static org.mockito.Mockito.when
 
-/**
- * Created by philippe on 10/06/17.
- */
 class BrandSpec extends Specification{
 
     def "BrandResource provides list of all brands"() {

@@ -7,7 +7,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 /**
- * Created by philippe on 11/06/17.
+ * Used to return custom 404 messages
  */
 public class ObjectNotFoundException extends WebApplicationException {
 

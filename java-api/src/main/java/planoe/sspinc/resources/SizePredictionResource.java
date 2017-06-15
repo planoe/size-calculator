@@ -18,7 +18,7 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 /**
- * Created by philippe on 11/06/17.
+ * Exposes prediction as a resource
  */
 @Path("/prediction")
 @Produces(MediaType.APPLICATION_JSON)
@@ -32,7 +32,9 @@ public class SizePredictionResource {
     }
 
     @GET
-    public SizePrediction predictSizeFrom(@QueryParam("brand") @NotEmpty String brandKey, @QueryParam("category") @NotEmpty String categoryKey, @QueryParam("size") @NotNull @UnwrapValidatedValue(false) IntParam measurement) {
+    public SizePrediction predictSizeFrom(@QueryParam("brand") @NotEmpty String brandKey,
+                                          @QueryParam("category") @NotEmpty String categoryKey,
+                                          @QueryParam("size") @NotNull @UnwrapValidatedValue(false) IntParam measurement) {
         List<String> result;
         try {
             result = sizeChartDAO.retrieveSizes(brandKey, categoryKey, measurement.get());

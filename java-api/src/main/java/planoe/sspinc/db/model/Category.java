@@ -6,9 +6,6 @@ import com.google.auto.value.AutoValue;
 
 import java.util.List;
 
-/**
- * Created by philippe on 14/06/17.
- */
 @AutoValue
 @JsonDeserialize(builder = AutoValue_Category.Builder.class)
 public abstract class Category {
