@@ -22,7 +22,7 @@ public abstract class SizePrediction {
         }
 
         @JsonProperty
-        abstract ImmutableList<String> getLabels();
+        abstract List<String> getLabels();
     }
 
 }
