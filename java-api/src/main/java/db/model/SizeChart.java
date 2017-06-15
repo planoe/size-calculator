@@ -19,10 +19,6 @@ public abstract class SizeChart {
     @JsonProperty
     public abstract String getAlphaSize();
 
-    static Builder builder() {
-        return new AutoValue_SizeChart.Builder();
-    }
-
     @AutoValue.Builder
     abstract static class Builder {
         @JsonProperty("measurement")

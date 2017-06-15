@@ -8,7 +8,7 @@ import db.dao.jsonimpl.JsonSizeChartDAO;
 /**
  * Created by philippe on 11/06/17.
  */
-public class SizeCalculatorModule extends AbstractModule{
+class SizeCalculatorModule extends AbstractModule{
 
     @Override
     protected void configure() {

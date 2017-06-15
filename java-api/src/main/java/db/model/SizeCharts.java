@@ -17,15 +17,10 @@ public abstract class SizeCharts {
     @JsonProperty
     public abstract Set<Brand> getBrands();
 
-    public static Builder builder() {
-        return new AutoValue_SizeCharts.Builder();
-    }
-
     @AutoValue.Builder
     abstract static class Builder {
         @JsonProperty("brands")
         abstract Builder setBrands(Set<Brand> brands);
-
         abstract SizeCharts build();
     }
 

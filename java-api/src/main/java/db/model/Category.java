@@ -24,10 +24,6 @@ public abstract class Category {
     @JsonProperty
     public abstract List<SizeChart> getSizeCharts();
 
-    static Builder builder() {
-        return new AutoValue_Category.Builder();
-    }
-
     @AutoValue.Builder
     abstract static class Builder {
         @JsonProperty("key")

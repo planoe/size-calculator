@@ -1,6 +1,5 @@
 package db.dao;
 
-import api.Brand;
 import api.Category;
 import exception.DAOException;
 

@@ -13,10 +13,6 @@ import java.util.List;
 @JsonDeserialize(builder = AutoValue_Brand.Builder.class)
 public abstract class Brand {
 
-    public static Brand create(String key, String name, List<Category> categories) {
-        return new AutoValue_Brand.Builder().setKey(key).setName(name).setCategories(categories).build();
-    }
-
     @JsonProperty
     public abstract String getKey();
 
@@ -25,10 +21,6 @@ public abstract class Brand {
 
     @JsonProperty
     public abstract List<Category> getCategories();
-
-    public static Builder builder() {
-        return new AutoValue_Brand.Builder();
-    }
 
     @AutoValue.Builder
     abstract static class Builder {

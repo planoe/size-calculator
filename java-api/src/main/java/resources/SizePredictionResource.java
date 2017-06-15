@@ -31,7 +31,7 @@ public class SizePredictionResource {
 
     @GET
     public SizePrediction predictSizeFrom(@QueryParam("brand") @NotEmpty String brandKey, @QueryParam("category") @NotEmpty String categoryKey, @QueryParam("size") IntParam measurement) {
-        List<String> result = null;
+        List<String> result;
         try {
             result = sizeChartDAO.retrieveSizes(brandKey, categoryKey, measurement.get());
         } catch (DAOException e) {

@@ -41,8 +41,8 @@ class BrandSpec extends Specification{
 
         where:
         testFilePath="src/test/resources/brands.json"
-        expectedBrands=[api.Brand.create("calvin-klein", "Calvin Klein"),
-                        api.Brand.create("karl-lagarfeld", "Karl Lagarfeld")]
+        expectedBrands=[Brand.create("calvin-klein", "Calvin Klein"),
+                        Brand.create("karl-lagarfeld", "Karl Lagarfeld")]
     }
 
 

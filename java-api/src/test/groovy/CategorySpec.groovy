@@ -3,7 +3,7 @@ import io.dropwizard.jersey.params.NonEmptyStringParam
 import resources.CategoryResource
 import spock.lang.Specification
 
-import static org.mockito.ArgumentMatchers.any
+import static org.mockito.ArgumentMatchers.anyString
 import static org.mockito.Mockito.mock
 import static org.mockito.Mockito.when
 
@@ -15,7 +15,7 @@ class CategorySpec extends Specification{
     def "CategoryResource provides list of all categories for a given brand"() {
         given:
         def fakeCategoryDAO  = mock(JsonCategoryDAO.class)
-        when(fakeCategoryDAO.retrieveBrandCategories(any())).thenReturn(categories)
+        when(fakeCategoryDAO.retrieveBrandCategories(anyString())).thenReturn(categories)
         def categoryResource = new CategoryResource(fakeCategoryDAO)
 
         when:
