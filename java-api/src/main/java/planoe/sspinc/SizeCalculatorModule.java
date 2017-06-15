@@ -1,5 +1,6 @@
 package planoe.sspinc;
 
+import com.google.inject.Provides;
 import planoe.sspinc.annotations.JsonFilePath;
 import com.google.inject.AbstractModule;
 import planoe.sspinc.db.dao.BrandDAO;
@@ -16,10 +17,15 @@ class SizeCalculatorModule extends AbstractModule{
 
     @Override
     protected void configure() {
-        bindConstant().annotatedWith(JsonFilePath.class).to("data/test_data.json");
-
         bind(BrandDAO.class).to(JsonBrandDAO.class);
         bind(CategoryDAO.class).to(JsonCategoryDAO.class);
         bind(SizeChartDAO.class).to(JsonSizeChartDAO.class);
     }
+
+    @Provides
+    @JsonFilePath
+    public String provideJsonPath(SizeCalculatorConfiguration config){
+        return config.getJsonFilePath();
+    }
+
 }

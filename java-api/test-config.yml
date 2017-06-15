@@ -1,3 +1,4 @@
+jsonFilePath: data/size_charts.json
 server:
   applicationConnectors:
     - type: http

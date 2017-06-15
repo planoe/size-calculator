@@ -14,17 +14,17 @@ import planoe.sspinc.resources.SizePredictionResource;
 /**
  * Created by philippe on 10/06/17.
  */
-public class SizeCalculatorApp extends Application<Configuration> {
+public class SizeCalculatorApp extends Application<SizeCalculatorConfiguration> {
 
     public static void main(String[] args) throws Exception {
         new SizeCalculatorApp().run(args);
     }
 
     @Override
-    public void initialize(Bootstrap<Configuration> bootstrap) {
-        GuiceBundle<Configuration> guiceBundle = GuiceBundle.newBuilder()
+    public void initialize(Bootstrap<SizeCalculatorConfiguration> bootstrap) {
+        GuiceBundle<SizeCalculatorConfiguration> guiceBundle = GuiceBundle.<SizeCalculatorConfiguration>newBuilder()
                 .addModule(new SizeCalculatorModule())
-                .setConfigClass(Configuration.class)
+                .setConfigClass(SizeCalculatorConfiguration.class)
                 .build();
         bootstrap.addBundle(guiceBundle);
 
@@ -32,7 +32,7 @@ public class SizeCalculatorApp extends Application<Configuration> {
         bootstrap.addBundle(new AssetsBundle("/assets", "/", "index.html"));
     }
 
-    public void run(Configuration configuration, Environment environment) throws Exception {
+    public void run(SizeCalculatorConfiguration configuration, Environment environment) throws Exception {
         environment.getObjectMapper().setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
 
         environment.jersey().register(BrandResource.class);
