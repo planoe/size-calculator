@@ -1,9 +1,5 @@
 import api.Brand
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.databind.PropertyNamingStrategy
-import com.google.common.collect.ImmutableList
-import db.JsonBrandDAO
-import db.model.SizeCharts
+import db.dao.jsonimpl.JsonBrandDAO
 import resources.BrandResource
 import spock.lang.Specification
 
@@ -34,10 +30,7 @@ class BrandSpec extends Specification{
 
     def "JsonBrandDAO get correctly data from json file" () {
         given:
-        def om = new ObjectMapper();
-        om.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
-        def sizeCharts = om.readValue(new File(testFilePath), SizeCharts.class)
-        def brandDAO = new JsonBrandDAO(sizeCharts)
+        def brandDAO = new JsonBrandDAO(testFilePath)
 
         when:
         def brands = brandDAO.retrieveAll()

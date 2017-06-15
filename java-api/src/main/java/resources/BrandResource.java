@@ -2,7 +2,9 @@ package resources;
 
 import api.BrandRepository;
 import com.google.inject.Inject;
-import db.BrandDAO;
+import db.dao.BrandDAO;
+import exception.DAOException;
+import exception.ObjectNotFoundException;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -25,6 +27,11 @@ public class BrandResource {
 
     @GET
     public BrandRepository getBrands() {
-        return new BrandRepository(brandDAO.retrieveAll());
+        try {
+            return new BrandRepository(brandDAO.retrieveAll());
+        } catch (DAOException e) {
+            e.printStackTrace();
+            throw new ObjectNotFoundException("Data source is currently unavailable");
+        }
     }
 }

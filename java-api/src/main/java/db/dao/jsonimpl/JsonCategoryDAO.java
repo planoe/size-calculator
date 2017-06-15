@@ -1,7 +1,9 @@
-package db;
+package db.dao.jsonimpl;
 
+import annotations.JsonFilePath;
 import api.Category;
-import db.model.SizeCharts;
+import db.dao.CategoryDAO;
+import exception.DAOException;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -10,17 +12,16 @@ import java.util.stream.Collectors;
 /**
  * Created by philippe on 13/06/17.
  */
-public class JsonCategoryDAO implements CategoryDAO {
-
-    private final SizeCharts sizeCharts;
+public class JsonCategoryDAO extends JsonDAOBase implements CategoryDAO {
 
     @Inject
-    public JsonCategoryDAO(SizeCharts sizeCharts) {
-        this.sizeCharts = sizeCharts;
+    public JsonCategoryDAO(@JsonFilePath String jsonFilePath) {
+        super(jsonFilePath);
     }
+
     @Override
-    public List<Category> retrieveBrandCategories(String brandKey) {
-        return sizeCharts.getBrands().stream()
+    public List<Category> retrieveBrandCategories(String brandKey) throws DAOException {
+        return queryData().getBrands().stream()
                 .filter(brand -> brand.getKey().equals(brandKey))
                 .findAny()
                 .get().getCategories().stream()

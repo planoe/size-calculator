@@ -1,7 +1,9 @@
-package db;
+package db.dao.jsonimpl;
 
+import annotations.JsonFilePath;
 import com.google.common.collect.ImmutableList;
-import db.model.SizeCharts;
+import db.dao.SizeChartDAO;
+import exception.DAOException;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -9,18 +11,16 @@ import java.util.List;
 /**
  * Created by philippe on 13/06/17.
  */
-public class JsonSizeChartDAO implements SizeChartDAO {
-
-    private final SizeCharts sizeCharts;
+public class JsonSizeChartDAO extends JsonDAOBase implements SizeChartDAO {
 
     @Inject
-    public JsonSizeChartDAO(SizeCharts sizeCharts) {
-        this.sizeCharts = sizeCharts;
+    public JsonSizeChartDAO(@JsonFilePath String jsonFilePath) {
+        super(jsonFilePath);
     }
 
     @Override
-    public List<String> retrieveSizes(String brandKey, String categoryKey, int measurement) {
-        return sizeCharts.getBrands().stream()
+    public List<String> retrieveSizes(String brandKey, String categoryKey, int measurement) throws DAOException {
+        return queryData().getBrands().stream()
                 .filter(brand -> brand.getKey().equals(brandKey))
                 .findAny()
                 .get().getCategories().stream()

@@ -1,14 +1,9 @@
 import api.SizePrediction
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.databind.PropertyNamingStrategy
-import com.google.inject.Guice
-import db.JsonSizeChartDAO
-import db.model.SizeCharts
+import db.dao.jsonimpl.JsonSizeChartDAO
 import io.dropwizard.jersey.params.IntParam
 import resources.SizePredictionResource
 import spock.lang.Specification
 
-import static org.mockito.ArgumentMatchers.any
 import static org.mockito.ArgumentMatchers.anyInt
 import static org.mockito.ArgumentMatchers.anyString
 import static org.mockito.Mockito.mock
@@ -40,10 +35,7 @@ class SizePredictionSpec extends Specification{
 
     def "JsonSizeChartDAO get correctly data from json file" () {
         given:
-        def om = new ObjectMapper()
-        om.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE)
-        def sizeCharts = om.readValue(new File(testFilePath), SizeCharts.class)
-        def sizeChartDAO = new JsonSizeChartDAO(sizeCharts)
+        def sizeChartDAO = new JsonSizeChartDAO(testFilePath)
 
         when:
         def actualSizes = sizeChartDAO.retrieveSizes(lookedUpBrand, lookedUpCategory, lookedUpMeasurement)

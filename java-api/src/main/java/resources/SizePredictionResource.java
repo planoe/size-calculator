@@ -2,12 +2,12 @@ package resources;
 
 import api.SizePrediction;
 import com.google.inject.Inject;
-import db.SizeChartDAO;
+import db.dao.SizeChartDAO;
+import exception.DAOException;
 import exception.ObjectNotFoundException;
 import io.dropwizard.jersey.params.IntParam;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.validation.constraints.NotNull;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -31,7 +31,13 @@ public class SizePredictionResource {
 
     @GET
     public SizePrediction predictSizeFrom(@QueryParam("brand") @NotEmpty String brandKey, @QueryParam("category") @NotEmpty String categoryKey, @QueryParam("size") IntParam measurement) {
-        List<String> result = sizeChartDAO.retrieveSizes(brandKey, categoryKey, measurement.get());
+        List<String> result = null;
+        try {
+            result = sizeChartDAO.retrieveSizes(brandKey, categoryKey, measurement.get());
+        } catch (DAOException e) {
+            e.printStackTrace();
+            throw new ObjectNotFoundException("Data is currently unavailable");
+        }
         if (result.isEmpty()) throw new ObjectNotFoundException("Size not available");
         return SizePrediction.create(result);
     }

@@ -1,7 +1,4 @@
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.databind.PropertyNamingStrategy
-import db.JsonCategoryDAO
-import db.model.SizeCharts
+import db.dao.jsonimpl.JsonCategoryDAO
 import io.dropwizard.jersey.params.NonEmptyStringParam
 import resources.CategoryResource
 import spock.lang.Specification
@@ -34,10 +31,7 @@ class CategorySpec extends Specification{
 
     def "JsonCategoryDAO get correctly data from json file" () {
         given:
-        def om = new ObjectMapper()
-        om.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE)
-        def sizeCharts = om.readValue(new File(testFilePath), SizeCharts.class)
-        def categoryDAO = new JsonCategoryDAO(sizeCharts)
+        def categoryDAO = new JsonCategoryDAO(testFilePath)
 
         when:
         def categories = categoryDAO.retrieveBrandCategories(lookedUpBrand)

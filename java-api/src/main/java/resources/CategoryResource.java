@@ -2,7 +2,9 @@ package resources;
 
 import api.CategoryRepository;
 import com.google.inject.Inject;
-import db.CategoryDAO;
+import db.dao.CategoryDAO;
+import exception.DAOException;
+import exception.ObjectNotFoundException;
 import io.dropwizard.jersey.params.NonEmptyStringParam;
 
 import javax.ws.rs.GET;
@@ -10,7 +12,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-import java.util.Optional;
 
 /**
  * Created by philippe on 11/06/17.
@@ -27,6 +28,11 @@ public class CategoryResource {
 
     @GET
     public CategoryRepository getCategoryRepository(@QueryParam("brand") NonEmptyStringParam brandKey) {
-        return new CategoryRepository(categoryDAO.retrieveBrandCategories(brandKey.get().get()));
+        try {
+            return new CategoryRepository(categoryDAO.retrieveBrandCategories(brandKey.get().get()));
+        } catch (DAOException e) {
+            e.printStackTrace();
+            throw new ObjectNotFoundException("Data source currently unavailable");
+        }
     }
 }
