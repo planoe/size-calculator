@@ -1,6 +1,6 @@
 package planoe.sspinc.resources;
 
-import planoe.sspinc.api.BrandRepository;
+import planoe.sspinc.api.Brands;
 import com.google.inject.Inject;
 import planoe.sspinc.db.dao.BrandDAO;
 import planoe.sspinc.exception.DAOException;
@@ -26,9 +26,9 @@ public class BrandResource {
     }
 
     @GET
-    public BrandRepository getBrands() {
+    public Brands getAllBrands() {
         try {
-            return new BrandRepository(brandDAO.retrieveAll());
+            return Brands.create(brandDAO.retrieveAll());
         } catch (DAOException e) {
             e.printStackTrace();
             throw new ObjectNotFoundException("Data source is currently unavailable");

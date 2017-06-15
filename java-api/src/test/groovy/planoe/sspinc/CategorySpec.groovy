@@ -21,10 +21,10 @@ class CategorySpec extends Specification{
         def categoryResource = new CategoryResource(fakeCategoryDAO)
 
         when:
-        def actualCategories = categoryResource.getCategoryRepository(lookedUpBrand)
+        def actualCategories = categoryResource.getAllCategoriesFromBrand(lookedUpBrand)
 
         then:
-        actualCategories.getCategoriesList() == categories
+        actualCategories.getCategories() == categories
 
         where:
         lookedUpBrand = "karl-lagarfeld"

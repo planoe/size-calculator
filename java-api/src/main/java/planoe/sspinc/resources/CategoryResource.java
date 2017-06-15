@@ -1,6 +1,6 @@
 package planoe.sspinc.resources;
 
-import planoe.sspinc.api.CategoryRepository;
+import planoe.sspinc.api.Categories;
 import com.google.inject.Inject;
 import planoe.sspinc.db.dao.CategoryDAO;
 import planoe.sspinc.exception.DAOException;
@@ -27,9 +27,9 @@ public class CategoryResource {
     }
 
     @GET
-    public CategoryRepository getCategoryRepository(@QueryParam("brand") @NotEmpty String brandKey) {
+    public Categories getAllCategoriesFromBrand(@QueryParam("brand") @NotEmpty String brandKey) {
         try {
-            return new CategoryRepository(categoryDAO.retrieveBrandCategories(brandKey));
+            return Categories.create(categoryDAO.retrieveBrandCategories(brandKey));
         } catch (DAOException e) {
             e.printStackTrace();
             throw new ObjectNotFoundException("Data source currently unavailable");

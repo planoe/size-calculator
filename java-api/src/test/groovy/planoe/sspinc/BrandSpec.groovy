@@ -20,10 +20,10 @@ class BrandSpec extends Specification{
         def brandResource = new BrandResource(FAKE_BRAND_DAO)
 
         when:
-        def actualBrands = brandResource.getBrands().getBrandsList()
+        def actualBrands = brandResource.getAllBrands()
 
         then:
-        actualBrands == brands
+        actualBrands.getBrands() == brands
 
         where:
         brands = [Brand.create("calvin-klein", "Calvin Klein"),
