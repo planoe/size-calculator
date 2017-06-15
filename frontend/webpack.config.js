@@ -31,7 +31,7 @@ module.exports = {
       }]
   },
   output: {
-    path: `${__dirname}/../java-api/src/main/resources/hehe`,
+    path: `${__dirname}/../java-api/src/main/resources/assets`,
     publicPath: '/',
     filename: 'size-calculator.js'
   },
